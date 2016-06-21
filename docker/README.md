@@ -18,4 +18,4 @@ Remove all volumes
 
 Enter a container
 
-    docker exec -it <CONTAONER_ID|CONTAINER_NAME> bash
+    docker exec -it <CONTAINER_ID|CONTAINER_NAME> bash
