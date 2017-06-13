@@ -1,0 +1,31 @@
+# MacOS
+
+### Karabiner
+
+Tap <kbd>Caps-Lock</kbd> for <kbd>Esc</kbd>, hold down for <kbd>Ctrl</kbd>.
+
+    $ cat ~/.config/karabiner/karabinder.json
+    {
+    "global": {
+        "check_for_updates_on_startup": true,
+        "show_in_menu_bar": true,
+        "show_profile_name_in_menu_bar": false
+    },
+    "profiles": [
+        {
+            "name": "Default profile",
+            "selected": true,
+            "simple_modifications": {
+                "caps_lock": "left_control"
+            },
+            "standalone_keys": {
+                "caps_lock": "escape",
+                "left_control": "escape"
+            },
+            "virtual_hid_keyboard": {
+                "caps_lock_delay_milliseconds": 0,
+                "keyboard_type": "ansi",
+                "standalone_keys_delay_milliseconds": 200
+            }
+        }
+    ]}
