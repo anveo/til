@@ -4,28 +4,58 @@
 
 Tap <kbd>Caps-Lock</kbd> for <kbd>Esc</kbd>, hold down for <kbd>Ctrl</kbd>.
 
-    $ cat ~/.config/karabiner/karabinder.json
+    $ cat ~/.config/karabiner/karabiner.json
     {
-    "global": {
-        "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
-    },
-    "profiles": [
-        {
-            "name": "Default profile",
-            "selected": true,
-            "simple_modifications": {
-                "caps_lock": "left_control"
-            },
-            "standalone_keys": {
-                "caps_lock": "escape",
-                "left_control": "escape"
-            },
-            "virtual_hid_keyboard": {
-                "caps_lock_delay_milliseconds": 0,
-                "keyboard_type": "ansi",
-                "standalone_keys_delay_milliseconds": 200
+        "global": {
+            "check_for_updates_on_startup": true,
+            "show_in_menu_bar": true,
+            "show_profile_name_in_menu_bar": false
+        },
+        "profiles": [
+            {
+                "complex_modifications": {
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 1000
+                    },
+                    "rules": [
+                        {
+                            "manipulators": [
+                                {
+                                    "description": "Change caps_lock to control when used as modifier, escape when used alone",
+                                    "from": {
+                                        "key_code": "caps_lock",
+                                        "modifiers": {
+                                            "optional": [
+                                                "any"
+                                            ]
+                                        }
+                                    },
+                                    "to": [
+                                        {
+                                            "key_code": "left_control"
+                                        }
+                                    ],
+                                    "to_if_alone": [
+                                        {
+                                            "key_code": "escape",
+                                            "modifiers": {
+                                                "optional": [
+                                                    "any"
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "type": "basic"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "selected": false,
+                "virtual_hid_keyboard": {
+                    "caps_lock_delay_milliseconds": 0,
+                    "keyboard_type": "ansi"
+                }
             }
-        }
-    ]}
+        ]
+    }
